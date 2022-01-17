@@ -1,0 +1,72 @@
+# Program to take screenshot
+(**)#using pyscreenshot (pip install pyscreenshot)
+import pyscreenshot
+
+# To capture the screen
+image = pyscreenshot.grab()
+
+# To display the captured screenshot
+image.show()
+
+# To save the screenshot
+image.save("GeeksforGeeks.png")
+
+(***)
+import pyautogui   # import PyAutoGUI library
+import tkinter as tk  # import tkinter library
+ 
+# create main window
+window = tk.Tk()
+ 
+# define a method that will call whenever button will be clicked
+def take():
+    image = pyautogui.screenshot("tkscreen.png")
+    image.show()
+ 
+# create a button 
+shot_btn = tk.Button(window,text = "Take Screenshot", command=take)
+ 
+# place the button on the window
+shot_btn.place(x=50, y=50)
+window.mainloop()
+
+(*****)
+# Python program to take
+# screenshots
+
+
+import numpy as np
+import cv2
+import pyautogui,time
+time.sleep(5)
+
+
+# take screenshot using pyautogui
+image = pyautogui.screenshot()
+
+# since the pyautogui takes as a
+# PIL(pillow) and in RGB we need to
+# convert it to numpy array and BGR
+# so we can write it to the disk
+# image = cv2.cvtColor(np.array(image),cv2.COLOR_RGB2BGR)
+
+# writing it to the disk using opencv
+# cv2.imwrite("image1.png",image)
+image.show()
+image.save("screencaptured.png")
+
+(********)
+#pip install keyboard
+from PIL import ImageGrab
+import keyboard
+while True:
+    try:
+        if keyboard.is_pressed('p'):
+            image = ImageGrab.grab()
+            image.show()
+            image.save("screenshot.png")
+            break
+        else:
+            pass
+    except:
+        break

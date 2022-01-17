@@ -1,0 +1,24 @@
+import random
+import math
+#Minimum number of guessing = log2(Upper bound – lower bound + 1)
+
+lower=int(input("Enter Lower Bound:"))
+upper=int(input("Enter Upper Bound:"))
+x=random.randint(lower,upper)
+no_of_chances=round(math.log(upper-lower+1,2))
+print("\n\tYou've only ",no_of_chances," chances to guess the integer!\n")
+
+count=0
+while(count<no_of_chances):
+    temp=int(input("Enter Your Guess:"))
+    if(x==temp):
+        print("You Guessed It Right")
+        break;
+    elif(x>temp):
+        print("You Guessed Lesser Number")
+    else:
+        print("You Guessed Larger Number")
+    count+=1
+if(count>=no_of_chances):
+    print("Opps! You Failed")
+    print("Better Luck Next Time")
